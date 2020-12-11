@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework06</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .fab {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .fab :hover {
+            cursor: pointer;
+        }
+        .fab-btn :hover {
+            transform: rotate(180deg);
+            transition: 1s;
+        }
+        .fab-btn i{
+            color: deepskyblue;
+            font-size: 4em;
+        }
+        .fab-menu ul{
+            display:none;
+            list-style: none;
+        }
+        .fab-menu li {
+            text-align: center;
+        }
+        .fab-menu li i {
+            color: deepskyblue;
+            font-size: 2em;
+            text-decoration: none;
+        }
+        .fab-menu li:last-child i{
+            color: red;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="fab">
+    <div class="fab-btn">
+        <i class="material-icons">account_circle</i>
+    </div>
+    <div class="fab-menu">
+        <ul>
+            <li><a href="#"><i class="material-icons">search</i></a></li>
+            <li><a href="#"><i class="material-icons">save</i></a></li>
+            <li><a href="#"><i class="material-icons">warning</i></a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".fab").hover(function () {
+            $(".fab-btn > i").html("remove_circle");
+            $(".fab-menu > ul").fadeIn();
+        },function (){
+            $(".fab-btn > i").html("account_circle");
+            $(".fab-menu > ul").fadeOut();
+        });
+    })
+</script>
+</body>
+</html>

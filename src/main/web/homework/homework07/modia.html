@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework07</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .content {
+            text-align: justify;
+        }
+        .modal {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-dialog {
+            width: 500px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .modal-body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid gainsboro;
+        }
+        .modal-content {
+            padding: 15px;
+            border-bottom: 1px solid #c3c3c3;
+        }
+        .modal-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 15px;
+        }
+        .modal-title {
+            font-weight: 500;
+        }
+        .btn {
+            display: inline-block;
+            color: white;
+            padding: 8px 16px;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            margin: 0 5px;
+        }
+        .btn-save {
+            background-color: deepskyblue;
+        }
+        .btn-close {
+            background-color: darkgray;
+        }
+        .close {
+            float: right;
+            color: black;
+            padding: 10px;
+            margin: 0 0 0 auto;
+            border: 0;
+            background-color: transparent;
+        }
+        .close:hover {
+            opacity: 1;
+        }
+        .fade {
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+            Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+            voluptatem voluptates, voluptatum!</p>
+    <button type="button" id="button" data-toggle="modal" data-target="#exampleModal">点击激活模态框</button>
+</div>
+    <!-- Modal -->
+    <div id="exampleModal" class="modal fade" style="display: none">
+        <div class="modal-dialog" role="document">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLiveLabel">Modal title</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-content">
+                    <p>Woohoo,you are reading this text in a modal!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-save">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("[data-target]").click(function (){
+            let dataId = $(this).attr("data-target");
+            $(dataId).fadeIn();
+            $(dataId).find(".modal-body").animate({top: "30px"});
+            $(dataId).click(function (e){
+                let con = $(this).find(".modal-body");
+                if(!con.is(e.target)&&con.has(e.target).length == 0) {
+                    $(dataId).find(".modal-body").animate({top: "0"});
+                    $(this).fadeOut();
+                }
+            });
+            $("[data-dismiss]").click(function (){
+                $(this).parents(dataId).find(".modal-body").animate({top: "0"});
+                $(this).parents(dataId).fadeOut();
+                return false;
+            });
+        });
+    })
+</script>
+</body>
+</html>

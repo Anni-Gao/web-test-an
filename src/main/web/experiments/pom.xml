@@ -19,6 +19,8 @@
         <module>experiment04</module>
         <module>experiment05</module>
         <module>experiment06</module>
+        <module>experiment07</module>
+        <module>experiment08</module>
     </modules>
 
 </project>

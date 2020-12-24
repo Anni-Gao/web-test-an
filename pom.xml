@@ -15,6 +15,9 @@
         <module>src/main/web/experiments/experiment05</module>
         <module>src/main/web/experiments/experiment06</module>
         <module>src/main/web/experiments/experiment04</module>
+        <module>src/main/web/experiments/experiment07</module>
+        <module>src/main/web/experiments/experiment08</module>
+        <module>src/main/web/experiments/experiment08</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
